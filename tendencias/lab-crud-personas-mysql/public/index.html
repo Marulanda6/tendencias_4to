@@ -1,0 +1,127 @@
+<!DOCTYPE html> 
+<html lang="es"> 
+<head> 
+  <meta charset="UTF-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+  <title>CRUD de Personas | MySQL + Express</title> 
+  <link rel="stylesheet" href="/styles.css" /> 
+</head> 
+<body> 
+  <main class="app-shell"> 
+    <section class="hero"> 
+      <div> 
+        <p class="eyebrow">Laboratorio guiado · Nivel 2</p> 
+        <h1>CRUD de personas con MySQL</h1> 
+        <p class="hero-text"> 
+          Registra, consulta, actualiza y elimina personas desde una interfaz web 
+          conectada a una API REST desarrollada con Node.js y Express. 
+        </p> 
+      </div> 
+ 
+      <div class="status-card" id="statusCard"> 
+        <span class="status-dot"></span> 
+        <div> 
+          <strong>Estado del servicio</strong> 
+          <p id="statusText">Verificando conexión...</p> 
+        </div> 
+      </div> 
+    </section> 
+ 
+    <section class="grid-layout"> 
+      <article class="card form-card"> 
+        <div class="card-header"> 
+          <div> 
+            <p class="section-label">Formulario</p> 
+            <h2 id="formTitle">Registrar persona</h2> 
+          </div> 
+          <button class="ghost-button" id="cancelEditButton" type="button" hidden> 
+            Cancelar edición 
+          </button> 
+        </div> 
+ 
+        <form id="personaForm" class="form-grid"> 
+          <label> 
+            Cédula 
+            <input name="cedula" maxlength="10" placeholder="0934567890" required /> 
+          </label> 
+ 
+          <label> 
+            Apellidos 
+            <input name="apellidos" placeholder="García López" required /> 
+          </label> 
+ 
+ 
+ 
+          <label> 
+            Nombres 
+            <input name="nombres" placeholder="María Fernanda" required /> 
+          </label> 
+ 
+          <label> 
+            Fecha de nacimiento 
+            <input name="fechaNacimiento" type="date" required /> 
+          </label> 
+ 
+          <label class="full-row"> 
+            Dirección 
+            <input name="direccion" placeholder="Av. Quito y 9 de Octubre" required /> 
+          </label> 
+ 
+          <label> 
+            Ciudad 
+            <input name="ciudad" placeholder="Guayaquil" required /> 
+          </label> 
+ 
+          <button class="primary-button" type="submit" id="submitButton"> 
+            Guardar persona 
+          </button> 
+        </form> 
+ 
+        <p class="message" id="messageBox" role="status"></p> 
+      </article> 
+ 
+      <article class="card table-card"> 
+        <div class="card-header"> 
+          <div> 
+            <p class="section-label">Registros</p> 
+            <h2>Personas almacenadas</h2> 
+          </div> 
+ 
+          <div class="filter-group"> 
+            <input id="cityFilter" placeholder="Filtrar por ciudad" /> 
+            <button class="secondary-button" id="filterButton" type="button"> 
+              Filtrar 
+            </button> 
+            <button class="ghost-button" id="clearFilterButton" type="button"> 
+              Limpiar 
+            </button> 
+          </div> 
+        </div> 
+ 
+        <div class="table-wrapper"> 
+          <table> 
+            <thead> 
+              <tr> 
+                <th>Cédula</th> 
+                <th>Apellidos y nombres</th> 
+                <th>Fecha nac.</th> 
+                <th>Ciudad</th> 
+                <th>Acciones</th> 
+              </tr> 
+            </thead> 
+            <tbody id="personasTableBody"> 
+              <tr> 
+                <td colspan="5" class="empty-state">Cargando personas...</td> 
+              </tr> 
+            </tbody> 
+          </table> 
+        </div> 
+ 
+ 
+      </article> 
+    </section> 
+  </main> 
+ 
+  <script src="/app.js"></script> 
+</body> 
+</html>
